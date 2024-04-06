@@ -1,5 +1,3 @@
-#include "pch.h"
-#include "myutils.hpp"
 #include <vector>
 
 int main() {
@@ -17,12 +15,13 @@ int main() {
   grid.resize(ROWS * COLUMNS);
   grid.reserve(ROWS * COLUMNS);
 
+  int scale = 255 / ROWS;
   for (int x = 0; x < COLUMNS; x++) {
     for (int y = 0; y < ROWS; y++) {
       sf::RectangleShape& rect = grid[x + y * COLUMNS];
       rect.setPosition(sf::Vector2f{sf::Vector2i{x * CELL_SIZE, y * CELL_SIZE}});
       rect.setSize({CELL_SIZE, CELL_SIZE});
-      rect.setFillColor(sf::Color(255, 255, 255, Random::GetByte()));
+      rect.setFillColor(sf::Color(255, 255, 255, scale * y));
     }
   }
 

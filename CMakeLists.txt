@@ -11,14 +11,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 project(MyProject VERSION 1.0)
 
-find_package(SFML 2.6.0 COMPONENTS system window graphics REQUIRED)
+file(GLOB_RECURSE SOURCES ${PROJECT_SOURCE_DIR}/src/*.cpp)
+add_executable(${PROJECT_NAME} ${SOURCES})
 
-include_directories(${MY_UTILS_PATH})
-
-add_executable(MyProject
-  ${SRC_DIR}main.cpp
-)
-
-target_precompile_headers(${PROJECT_NAME} PUBLIC ${SRC_DIR}pch.h)
-target_link_libraries(MyProject sfml-system sfml-window sfml-graphics)
+target_precompile_headers(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/src/pch.h)
+target_include_directories(${PROJECT_NAME} PUBLIC ${SFML_PATH}/include)
+target_link_directories(${PROJECT_NAME} PUBLIC ${SFML_PATH}/lib)
+target_link_libraries(${PROJECT_NAME} sfml-system sfml-window sfml-graphics)
 
