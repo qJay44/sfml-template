@@ -3,8 +3,8 @@ message(STATUS "Local .env.cmake: ${LOCAL_ENV}")
 
 cmake_minimum_required(VERSION 3.10)
 
-set(CMAKE_C_COMPILER ${MINGW32_PATH}gcc.exe)
-set(CMAKE_CXX_COMPILER ${MINGW32_PATH}g++.exe)
+set(CMAKE_C_COMPILER ${MINGW64_PATH}/gcc.exe)
+set(CMAKE_CXX_COMPILER ${MINGW64_PATH}/g++.exe)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)

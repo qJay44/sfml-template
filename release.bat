@@ -18,5 +18,5 @@ endlocal
 
 Rem Lauch
 MyProject.exe
-cd ../../
+cd ..\..\
 
